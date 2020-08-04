@@ -30,7 +30,7 @@ enum EFaultRepRetVal {
     frrvOkHeadless // = 7
 }
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     BOOL AddERExcludedApplicationA(LPCSTR);
     BOOL AddERExcludedApplicationW(LPCWSTR);
     EFaultRepRetVal ReportFault(LPEXCEPTION_POINTERS, DWORD);

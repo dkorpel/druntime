@@ -284,8 +284,8 @@ enum MEVT_F_SHORT=0;
 enum MEVT_F_LONG=0x80000000;
 enum MEVT_F_CALLBACK=0x40000000;
 
-BYTE MEVT_EVENTTYPE(DWORD x) { return cast(BYTE)((x>>24) &0xFF); }
-DWORD MEVT_EVENTPARM(DWORD x) { return x & 0xFFFFFF; }
+BYTE MEVT_EVENTTYPE(DWORD x) @nogc nothrow { return cast(BYTE)((x>>24) &0xFF); }
+DWORD MEVT_EVENTPARM(DWORD x) @nogc nothrow { return x & 0xFFFFFF; }
 
 enum MEVT_SHORTMSG=0;
 enum MEVT_TEMPO=1;
@@ -1837,7 +1837,7 @@ struct MCI_WAVE_SET_PARMS {
 }
 alias MCI_WAVE_SET_PARMS* PMCI_WAVE_SET_PARMS, LPMCI_WAVE_SET_PARMS;
 
-extern (Windows) nothrow @nogc:
+extern (Windows) nothrow: @nogc:
 LRESULT CloseDriver(HDRVR, LONG, LONG);
 HDRVR OpenDriver(LPCWSTR, LPCWSTR, LONG);
 LRESULT SendDriverMessage(HDRVR, UINT, LONG, LONG);

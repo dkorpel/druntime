@@ -85,7 +85,7 @@ struct SERVICE_ADDRESSES {
     DWORD           dwAddressCount;
     SERVICE_ADDRESS _Addresses;
 
-    SERVICE_ADDRESS* Addresses() return { return &_Addresses; }
+    SERVICE_ADDRESS* Addresses() return @nogc nothrow { return &_Addresses; }
 }
 alias SERVICE_ADDRESSES* PSERVICE_ADDRESSES, LPSERVICE_ADDRESSES;
 
@@ -119,7 +119,7 @@ alias SERVICE_INFOW* LPSERVICE_INFOW;
 
 alias void* LPSERVICE_ASYNC_INFO;
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     INT SetServiceA(DWORD, DWORD, DWORD, LPSERVICE_INFOA,
       LPSERVICE_ASYNC_INFO, LPDWORD);
     INT SetServiceW(DWORD, DWORD, DWORD, LPSERVICE_INFOW,

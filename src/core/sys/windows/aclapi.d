@@ -10,6 +10,8 @@
 module core.sys.windows.aclapi;
 version (Windows):
 @system:
+@nogc:
+nothrow:
 
 version (ANSI) {} else version = Unicode;
 pragma(lib, "advapi32");

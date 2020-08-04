@@ -42,7 +42,7 @@ struct AT_INFO {
 }
 alias AT_INFO* PAT_INFO, LPAT_INFO;
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     NET_API_STATUS NetScheduleJobAdd(LPWSTR, PBYTE, LPDWORD);
     NET_API_STATUS NetScheduleJobDel(LPWSTR, DWORD, DWORD);
     NET_API_STATUS NetScheduleJobEnum(LPWSTR, PBYTE*, DWORD, PDWORD, PDWORD,

@@ -110,7 +110,7 @@ struct HSE_SEND_HEADER_EX_INFO {
 }
 alias HSE_SEND_HEADER_EX_INFO* LPHSE_SEND_HEADER_EX_INF;
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     BOOL GetExtensionVersion(HSE_VERSION_INFO*);
     DWORD HttpExtensionProc(EXTENSION_CONTROL_BLOCK*);
     BOOL TerminateExtension(DWORD);

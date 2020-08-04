@@ -32,6 +32,9 @@ struct DDEACK {
     ubyte bAppReturnCode;
     ubyte _bf;
 
+    @nogc:
+    nothrow:
+
     @property ubyte reserved() { return cast(ubyte) (_bf & 0x3F); }
     @property bool  fBusy()    { return cast(bool)  (_bf & 0x40); }
     @property bool  fAck()     { return cast(bool)  (_bf & 0x80); }
@@ -48,6 +51,9 @@ struct DDEACK {
 struct DDEADVISE {
     ushort _bf;
     short  cfFormat;
+
+    @nogc:
+    nothrow:
 
     @property ushort reserved()  { return cast(ushort) (_bf & 0x3FFF); }
     @property bool   fDeferUpd() { return cast(bool)   (_bf & 0x4000); }
@@ -66,6 +72,9 @@ struct DDEDATA {
     ushort _bf;
     short  cfFormat;
     byte   _Value;
+
+    @nogc:
+    nothrow:
 
     @property ushort unused()    { return cast(ushort) (_bf & 0x0FFF); }
     @property bool   fResponse() { return cast(bool)   (_bf & 0x1000); }
@@ -90,6 +99,9 @@ struct DDEPOKE {
     ushort _bf;
     short  cfFormat;
     byte   _Value;
+
+    @nogc:
+    nothrow:
 
     @property ushort unused()    { return cast(ushort) (_bf & 0x1FFF); }
     @property bool   fRelease()  { return cast(bool)   (_bf & 0x2000); }
@@ -149,7 +161,7 @@ deprecated struct DDEUP {
     @property bool   fAckReq(bool f)   { _bf = cast(ushort) ((_bf & ~0x8000) | (f << 15)); return f; }
 }
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     BOOL DdeSetQualityOfService(HWND, const(SECURITY_QUALITY_OF_SERVICE)*,
       PSECURITY_QUALITY_OF_SERVICE);
     BOOL ImpersonateDdeClientWindow(HWND, HWND);

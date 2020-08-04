@@ -295,7 +295,9 @@ extern (Windows) {
       PSYMBOL_REGISTERED_CALLBACK;
     alias BOOL function(DIGEST_HANDLE refdata, PBYTE pData, DWORD dwLength)
       DIGEST_FUNCTION;
+}
 
+extern(Windows) @nogc nothrow {
     PIMAGE_NT_HEADERS CheckSumMappedFile(LPVOID, DWORD, LPDWORD, LPDWORD);
     DWORD MapFileAndCheckSumA(LPSTR, LPDWORD, LPDWORD);
     DWORD MapFileAndCheckSumW(PWSTR, LPDWORD, LPDWORD);

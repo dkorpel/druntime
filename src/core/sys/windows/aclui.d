@@ -10,6 +10,8 @@
 module core.sys.windows.aclui;
 version (Windows):
 @system:
+@nogc:
+nothrow:
 pragma(lib, "aclui");
 
 import core.sys.windows.w32api;

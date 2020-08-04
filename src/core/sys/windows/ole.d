@@ -39,7 +39,7 @@ struct OLETARGETDEVICE {
     USHORT otdEnvironmentOffset;
     USHORT otdEnvironmentSize;
     BYTE   _otdData;
-    BYTE*  otdData() return { return &_otdData; }
+    BYTE*  otdData() return @nogc nothrow { return &_otdData; }
 }
 alias OLETARGETDEVICE* LPOLETARGETDEVICE;
 
@@ -284,7 +284,7 @@ struct OLESERVERDOC {
 }
 alias OLESERVERDOC* LPOLESERVERDOC;
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     OLESTATUS OleDelete(LPOLEOBJECT);
     OLESTATUS OleRelease(LPOLEOBJECT);
     OLESTATUS OleSaveToStream(LPOLEOBJECT, LPOLESTREAM);

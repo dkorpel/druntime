@@ -105,7 +105,9 @@ enum STDMSHLFLAGS {
 extern(Windows) {
     alias HRESULT function(REFCLSID, REFIID, PVOID*) LPFNGETCLASSOBJECT;
     alias HRESULT function() LPFNCANUNLOADNOW;
+}
 
+extern(Windows) @nogc nothrow {
     DWORD CoBuildVersion();
     HRESULT CoInitialize(PVOID);
     HRESULT CoInitializeEx(LPVOID, DWORD);

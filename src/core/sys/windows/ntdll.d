@@ -20,4 +20,4 @@ enum SHUTDOWN_ACTION {
     ShutdownPowerOff
 }
 
-extern (Windows) uint NtShutdownSystem(SHUTDOWN_ACTION Action);
+extern (Windows) @nogc nothrow uint NtShutdownSystem(SHUTDOWN_ACTION Action);

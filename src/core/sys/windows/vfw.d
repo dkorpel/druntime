@@ -23,13 +23,13 @@ private import
     core.sys.windows.windef,
     core.sys.windows.winuser;
 
-extern(Windows) {
+extern(Windows) @nogc nothrow {
     DWORD VideoForWindowsVersion();
     LONG InitVFW();
     LONG TermVFW();
 }
 
-DWORD MKFOURCC(char ch0, char ch1, char ch2, char ch3) {
+DWORD MKFOURCC(char ch0, char ch1, char ch2, char ch3) @nogc nothrow {
     return (cast(DWORD)ch0) | ((cast(DWORD)ch1) << 8) | ((cast(DWORD)ch2) << 16) | ((cast(DWORD)ch3) << 24);
 }
 
@@ -749,7 +749,7 @@ enum {
     PD_STRETCHDIB_1_N_OK    = 0x0010,
 }
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     LRESULT DrawDibProfileDisplay(LPBITMAPINFOHEADER lpbi);
     void StretchDIB(LPBITMAPINFOHEADER biDst, LPVOID lpDst, int DstX, int DstY,
         int DstXE, int DstYE, LPBITMAPINFOHEADER biSrc, LPVOID lpSrc,

@@ -49,7 +49,7 @@ extern (Windows) {
 }
 alias OLESTREAMVTBL* LPOLESTREAMVTBL;
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     HRESULT CreateDataAdviseHolder(LPDATAADVISEHOLDER*);
     DWORD OleBuildVersion();
     HRESULT ReadClassStg(LPSTORAGE, CLSID*);

@@ -4955,6 +4955,8 @@ LRESULT FORWARD_WM_NOTIFY(HWND hwnd, int idFrom, NMHDR* pnmhdr, _prm_FORWARD_WM_
 }
 
 //#define CCSIZEOF_STRUCT(s, m) (((int)((PBYTE)(&((s*)0)->m)-((PBYTE)((s*)0))))+sizeof(((s*)0)->m))
+@nogc:
+nothrow:
 
 LPARAM MAKEIPADDRESS(ubyte b1, ubyte b2, ubyte b3, ubyte b4) {
     return (cast(DWORD) b1 << 24)

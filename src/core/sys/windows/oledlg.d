@@ -388,7 +388,7 @@ struct OLEUIINSERTOBJECTA {
 }
 alias OLEUIINSERTOBJECTA* POLEUIINSERTOBJECTA, LPOLEUIINSERTOBJECTA;
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     UINT OleUIInsertObjectW(LPOLEUIINSERTOBJECTW);
     UINT OleUIInsertObjectA(LPOLEUIINSERTOBJECTA);
 }
@@ -850,7 +850,7 @@ struct OLEUIOBJECTPROPSA {
 }
 alias OLEUIOBJECTPROPSA* POLEUIOBJECTPROPSA, LPOLEUIOBJECTPROPSA;
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     BOOL OleUIAddVerbMenuW(LPOLEOBJECT, LPCWSTR, HMENU, UINT, UINT, UINT, BOOL, UINT, HMENU*);
     BOOL OleUIAddVerbMenuA(LPOLEOBJECT, LPCSTR, HMENU, UINT, UINT, UINT, BOOL, UINT, HMENU*);
     UINT OleUIBusyW(LPOLEUIBUSYW);
@@ -872,7 +872,7 @@ extern (Windows) {
     BOOL OleUIUpdateLinksA(LPOLEUILINKCONTAINERA, HWND, LPSTR, int);
 }
 
-extern (C) {
+extern (C) @nogc nothrow {
     int OleUIPromptUserW(int, HWND, ...);
     int OleUIPromptUserA(int, HWND, ...);
 }

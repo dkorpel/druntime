@@ -238,4 +238,4 @@ struct SESSION_HEADER {
 }
 alias SESSION_HEADER* PSESSION_HEADER;
 
-extern (Windows) UCHAR Netbios(PNCB);
+extern (Windows) @nogc nothrow UCHAR Netbios(PNCB);

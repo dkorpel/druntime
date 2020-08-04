@@ -385,7 +385,7 @@ struct PICTDESC
 }
 alias PICTDESC* LPPICTDESC;
 
-extern(Windows) {
+extern(Windows) @nogc nothrow {
     HRESULT DllRegisterServer();
     HRESULT DllUnregisterServer();
     HRESULT OleCreateFontIndirect(LPFONTDESC, REFIID, PVOID*);

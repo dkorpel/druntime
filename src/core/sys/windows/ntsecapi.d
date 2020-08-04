@@ -41,7 +41,7 @@ enum {
     LSA_MODE_LOG_FULL
 }
 
-bool LSA_SUCCESS(int x) { return x >= 0; }
+bool LSA_SUCCESS(int x) @nogc nothrow { return x >= 0; }
 
 /*  TOTHINKABOUT: These constants don't have ANSI/Unicode versioned
  *  aliases.  Should we merge them anyway?
@@ -456,7 +456,7 @@ struct MSV1_0_NTLM3_RESPONSE {
     UCHAR[MSV1_0_CHALLENGE_LENGTH]      ChallengeFromClient;
     ULONG     AvPairsOff;
     UCHAR     _Buffer;
-    UCHAR*    Buffer() return { return &_Buffer; }
+    UCHAR*    Buffer() return @nogc nothrow { return &_Buffer; }
 }
 alias MSV1_0_NTLM3_RESPONSE* PMSV1_0_NTLM3_RESPONSE;
 
@@ -506,7 +506,7 @@ struct MSV1_0_DERIVECRED_REQUEST {
     ULONG  DeriveCredType;
     ULONG  DeriveCredInfoLength;
     UCHAR  _DeriveCredSubmitBuffer;
-    UCHAR* DeriveCredSubmitBuffer() return { return &_DeriveCredSubmitBuffer; }
+    UCHAR* DeriveCredSubmitBuffer() return @nogc nothrow { return &_DeriveCredSubmitBuffer; }
 }
 alias MSV1_0_DERIVECRED_REQUEST* PMSV1_0_DERIVECRED_REQUEST;
 
@@ -514,7 +514,7 @@ struct MSV1_0_DERIVECRED_RESPONSE {
     MSV1_0_PROTOCOL_MESSAGE_TYPE MessageType;
     ULONG  DeriveCredInfoLength;
     UCHAR  _DeriveCredReturnBuffer;
-    UCHAR* DeriveCredReturnBuffer() return { return &_DeriveCredReturnBuffer; }
+    UCHAR* DeriveCredReturnBuffer() return @nogc nothrow { return &_DeriveCredReturnBuffer; }
 }
 alias MSV1_0_DERIVECRED_RESPONSE* PMSV1_0_DERIVECRED_RESPONSE;
 
@@ -727,7 +727,7 @@ struct TRUSTED_DOMAIN_FULL_INFORMATION {
 }
 alias TRUSTED_DOMAIN_FULL_INFORMATION* PTRUSTED_DOMAIN_FULL_INFORMATION;
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     NTSTATUS LsaAddAccountRights(LSA_HANDLE, PSID, PLSA_UNICODE_STRING,
       ULONG);
     NTSTATUS LsaCallAuthenticationPackage(HANDLE, ULONG, PVOID, ULONG,

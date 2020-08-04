@@ -118,5 +118,5 @@ struct STAT_WORKSTATION_0{
 }
 alias STAT_WORKSTATION_0* PSTAT_WORKSTATION_0, LPSTAT_WORKSTATION_0;
 
-extern (Windows):
+extern (Windows): @nogc: nothrow:
 NET_API_STATUS NetStatisticsGet(LPWSTR,LPWSTR,DWORD,DWORD,PBYTE*);

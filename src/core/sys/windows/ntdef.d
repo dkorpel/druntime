@@ -23,7 +23,7 @@ enum uint
     OBJ_VALID_ATTRIBUTES = 0x01F2;
 
 void InitializeObjectAttributes(OBJECT_ATTRIBUTES* p, UNICODE_STRING* n,
-      uint a, HANDLE r, void* s) {
+      uint a, HANDLE r, void* s) @nogc nothrow {
     with (*p) {
         Length = OBJECT_ATTRIBUTES.sizeof;
         RootDirectory = r;
@@ -34,7 +34,7 @@ void InitializeObjectAttributes(OBJECT_ATTRIBUTES* p, UNICODE_STRING* n,
     }
 }
 
-bool NT_SUCCESS(int x) { return x >= 0; }
+bool NT_SUCCESS(int x) @nogc nothrow { return x >= 0; }
 
 /*  In MinGW, NTSTATUS, UNICODE_STRING, STRING and their associated pointer
  *  type aliases are defined in ntdef.h, ntsecapi.h and subauth.h, each of

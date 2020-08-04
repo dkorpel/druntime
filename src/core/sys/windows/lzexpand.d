@@ -26,7 +26,7 @@ enum : LONG {
     LZERROR_UNKNOWNALG   = -8
 }
 
-extern (Windows):
+extern (Windows): @nogc: nothrow:
 deprecated {
     LONG CopyLZFile(INT, INT);
     void LZDone();

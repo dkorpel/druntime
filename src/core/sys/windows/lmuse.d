@@ -72,7 +72,7 @@ struct USE_INFO_2 {
 }
 alias USE_INFO_2* PUSE_INFO_2, LPUSE_INFO_2;
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     NET_API_STATUS NetUseAdd(LPWSTR, DWORD, PBYTE, PDWORD);
     NET_API_STATUS NetUseDel(LPWSTR, LPWSTR, DWORD);
     NET_API_STATUS NetUseEnum(LPWSTR, DWORD, PBYTE*, DWORD, PDWORD, PDWORD,

@@ -709,7 +709,7 @@ struct NETLOGON_INFO_3{
 }
 alias NETLOGON_INFO_3* PNETLOGON_INFO_3;
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
 deprecated {
     /* These are obsolete */
     NET_API_STATUS NetAccessAdd(LPCWSTR,DWORD,PBYTE,PDWORD);

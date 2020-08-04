@@ -46,7 +46,7 @@ struct DHCPCAPI_PARAMS_ARRAY {
 }
 alias DHCPCAPI_PARAMS_ARRAY* PDHCPCAPI_PARAMS_ARRAY, LPDHCPCAPI_PARAMS_ARRAY;
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     void DhcpCApiCleanup();
     DWORD DhcpCApiInitialize(LPDWORD);
     DWORD DhcpDeRegisterParamChange(DWORD, LPVOID, LPVOID);

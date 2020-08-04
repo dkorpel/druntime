@@ -252,7 +252,7 @@ struct MONHSZSTRUCT {
     HANDLE   hTask;
     TCHAR[1] _str = 0;
 
-    TCHAR* str() return { return _str.ptr; }
+    TCHAR* str() return @nogc nothrow { return _str.ptr; }
 }
 alias MONHSZSTRUCT* PMONHSZSTRUCT;
 
@@ -323,7 +323,7 @@ struct MONMSGSTRUCT {
 }
 alias MONMSGSTRUCT* PMONMSGSTRUCT;
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     BOOL DdeAbandonTransaction(DWORD, HCONV, DWORD);
     PBYTE DdeAccessData(HDDEDATA, PDWORD);
     HDDEDATA DdeAddData(HDDEDATA, PBYTE, DWORD, DWORD);

@@ -125,7 +125,7 @@ struct MapiMessage {
 }
 alias MapiMessage* lpMapiMessage;
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     ULONG MAPILogon(ULONG_PTR, LPSTR, LPSTR, FLAGS, ULONG, LPLHANDLE);
     ULONG MAPISendMail(LHANDLE, ULONG_PTR, lpMapiMessage, FLAGS, ULONG);
     ULONG MAPISendDocuments(ULONG_PTR, LPSTR, LPSTR, LPSTR, ULONG);
@@ -144,7 +144,9 @@ extern (Windows) {
     // Netscape extensions
     ULONG MAPIGetNetscapeVersion();
     ULONG MAPI_NSCP_SynchronizeClient(LHANDLE, ULONG);
+}
 
+extern (Windows) {
     // Handles for use with GetProcAddress
     alias ULONG function(ULONG_PTR, LPSTR, LPSTR, FLAGS, ULONG, LPLHANDLE)
       LPMAPILOGON;

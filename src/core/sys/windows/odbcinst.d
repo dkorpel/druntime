@@ -77,7 +77,7 @@ enum : DWORD {
     ODBC_ERROR_OUTPUT_STRING_TRUNCATED = 22
 }
 
-extern (Windows):
+extern (Windows): @nogc: nothrow:
 BOOL  ConfigDSN(HWND,WORD,LPCSTR,LPCSTR);
 BOOL  ConfigDSNW(HWND,WORD,LPCWSTR,LPCWSTR);
 BOOL  ConfigTranslator(HWND,DWORD*);

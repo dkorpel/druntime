@@ -129,7 +129,9 @@ extern (Windows) {
       DWORD_PTR dwInstance, DWORD fdwSupport) ACMFORMATTAGENUMCBW;
     alias BOOL function(HACMDRIVERID hadid, DWORD_PTR dwInstance,
       DWORD fdwSupport) ACMDRIVERENUMCB;
+}
 
+extern (Windows) @nogc nothrow {
     MMRESULT acmDriverOpen(LPHACMDRIVER phad, HACMDRIVERID hadid,
       DWORD fdwOpen);
     MMRESULT acmDriverEnum(ACMDRIVERENUMCB fnCallback, DWORD_PTR dwInstance,

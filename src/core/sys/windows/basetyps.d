@@ -9,6 +9,8 @@
 module core.sys.windows.basetyps;
 version (Windows):
 @system:
+@nogc:
+nothrow:
 
 import core.sys.windows.windef, core.sys.windows.basetsd;
 

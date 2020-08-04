@@ -77,7 +77,7 @@ struct HANDLE_INFO_1{
 }
 alias HANDLE_INFO_1* PHANDLE_INFO_1, LPHANDLE_INFO_1;
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     NET_API_STATUS NetCharDevEnum(LPCWSTR, DWORD, PBYTE*, DWORD, PDWORD, PDWORD, PDWORD);
     NET_API_STATUS NetCharDevGetInfo(LPCWSTR, LPCWSTR, DWORD, PBYTE*);
     NET_API_STATUS NetCharDevControl(LPCWSTR, LPCWSTR, DWORD);

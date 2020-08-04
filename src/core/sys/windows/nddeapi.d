@@ -101,7 +101,7 @@ extern (C) {    // huh?
     NDdeShareInfo_tag* PNDDESHAREINFO;
 }
 
-extern (Windows) {
+extern (Windows) @nogc nothrow {
     UINT NDdeGetErrorStringA(UINT, LPSTR, DWORD);
     UINT NDdeGetErrorStringW(UINT, LPWSTR, DWORD);
     UINT NDdeGetShareSecurityA(LPSTR, LPSTR, SECURITY_INFORMATION,

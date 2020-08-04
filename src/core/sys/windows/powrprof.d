@@ -115,7 +115,9 @@ extern (Windows) {
       LPARAM) PWRSCHEMESENUMPROC;
     alias BOOLEAN function(POWER_ACTION, SYSTEM_POWER_STATE, ULONG, BOOLEAN)
       PFNNTINITIATEPWRACTION;
+}
 
+extern (Windows) @nogc nothrow {
     NTSTATUS CallNtPowerInformation(POWER_INFORMATION_LEVEL, PVOID, ULONG,
       PVOID, ULONG);
     BOOLEAN CanUserWritePwrScheme();

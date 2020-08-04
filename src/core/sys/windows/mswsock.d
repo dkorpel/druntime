@@ -85,7 +85,7 @@ struct TRANSMIT_FILE_BUFFERS {
 }
 alias TRANSMIT_FILE_BUFFERS* PTRANSMIT_FILE_BUFFERS, LPTRANSMIT_FILE_BUFFERS;
 
-extern(Windows) {
+extern(Windows) @nogc nothrow {
     /* Win95+, WinNT3.51+
        ms-help://MS.MSDNQTR.2003FEB.1033/winsock/winsock/wsarecvex_2.htm */
     int WSARecvEx(SOCKET, char*, int, int*);
@@ -97,7 +97,9 @@ extern(Windows) {
     /* WinNT3.51+
        ms-help://MS.MSDNQTR.2003FEB.1033/winsock/winsock/transmitfile_2.htm */
     BOOL TransmitFile(SOCKET, HANDLE, DWORD, DWORD, LPOVERLAPPED, LPTRANSMIT_FILE_BUFFERS, DWORD);
+}
 
+extern(Windows) {
     /* WinNT3.51+
        ms-help://MS.MSDNQTR.2003FEB.1033/winsock/winsock/acceptex_2.htm */
     alias BOOL function(SOCKET, SOCKET, PVOID, DWORD, DWORD, DWORD, LPDWORD, LPOVERLAPPED) LPFN_ACCEPTEX;
@@ -164,7 +166,7 @@ static if (_WIN32_WINNT >= 0x501) {
         // followed by UCHAR cmsg_data[];
     }
 }
-
+@nogc: nothrow:
 static if (_WIN32_WINNT >= 0x600) {
     /* TODO: Standard Posix.1g macros as per RFC 2292, with WSA_uglification. */
     /* DK: MinGW doesn't define these, and neither does the MSDN docs.  Might have

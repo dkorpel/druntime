@@ -100,8 +100,8 @@ extern (Windows) {
     alias INT function(DWORD, DWORD, HFONT, LPWSTR) LPFNCCSIZETOTEXTW;
     alias UINT function(LPCCINFOA) LPFNCCINFOA;
     alias UINT function(LPCCINFOW) LPFNCCINFOW;
-    UINT CustomControlInfoA(LPCCINFOA acci);
-    UINT CustomControlInfoW(LPCCINFOW acci);
+    UINT CustomControlInfoA(LPCCINFOA acci) @nogc nothrow;
+    UINT CustomControlInfoW(LPCCINFOW acci) @nogc nothrow;
 }
 
 version (Unicode) {
